@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pradeep Kumar Reddy Reddem - Software & Data Engineer</title>
+    <title>Pradeep Kumar Reddy Reddem - Software Engineer</title>
     <style>
         * {
             margin: 0;
@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
         }
 
@@ -25,47 +25,29 @@
             padding: 20px;
         }
 
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
+        .hero h1 {
+            font-size: 3.5rem;
             color: white;
-            font-weight: bold;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .header h1 {
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header p {
-            color: #7f8c8d;
-            font-size: 1.2em;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .contact-info {
@@ -73,76 +55,90 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #555;
+            color: white;
             text-decoration: none;
-            padding: 10px 15px;
-            background: rgba(102, 126, 234, 0.1);
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 25px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .contact-item:hover {
-            background: rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Main Content */
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #333;
             margin-bottom: 30px;
+            text-align: center;
+            position: relative;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            border-radius: 2px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 30px;
+            margin-top: 30px;
         }
 
         .skill-category {
-            background: rgba(102, 126, 234, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d6e7f0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #1e3c72;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .skill-category h3 {
-            color: #2c3e50;
+            color: #333;
             margin-bottom: 15px;
-            font-size: 1.2em;
+            font-size: 1.3rem;
         }
 
         .skill-tags {
@@ -152,275 +148,277 @@
         }
 
         .skill-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: #1e3c72;
             color: white;
-            padding: 6px 12px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        /* Certifications Section */
-        .certifications-grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .cert-item {
-            background: rgba(102, 126, 234, 0.08);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            position: relative;
         }
 
-        .cert-item:hover {
-            background: rgba(102, 126, 234, 0.12);
-            transform: translateX(5px);
+        .skill-tag:hover {
+            background: #2a5298;
+            transform: scale(1.05);
         }
 
-        .cert-header {
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 12px;
+            border-left: 5px solid #ff6b6b;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .company-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            color: #666;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .date-location {
+            text-align: right;
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        .achievements {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #1e3c72;
+            font-size: 0.8rem;
+        }
+
+        .education {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 5px solid #4ecdc4;
+        }
+
+        .education h3 {
+            font-size: 1.5rem;
+            color: #333;
             margin-bottom: 10px;
+        }
+
+        .education p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .publication-item {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #ff9800;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.1);
+        }
+
+        .publication-item::before {
+            content: '📚';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.6;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.25);
+            border-left-width: 8px;
+        }
+
+        .publication-header h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .publication-meta {
+            margin-bottom: 20px;
+        }
+
+        .journal {
+            display: block;
+            color: #ff9800;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .pub-date {
+            color: #666;
+            font-size: 0.95rem;
+            background: rgba(255, 152, 0, 0.15);
+            padding: 6px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .publication-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .highlight-badge {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255, 152, 0, 0.3);
+        }
+
+        .highlight-badge:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .certification-item {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-item::before {
+            content: '🏆';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.2);
+        }
+
+        .cert-header {
+            margin-bottom: 15px;
+        }
+
+        .cert-header h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .cert-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             gap: 10px;
         }
 
-        .cert-header h3 {
-            color: #2c3e50;
-            font-size: 1.2em;
-            margin: 0;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .cert-issuer {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+        .issuer {
             font-weight: 600;
-            white-space: nowrap;
+            color: #4caf50;
+            font-size: 1.1rem;
         }
 
-        .cert-date {
-            color: #7f8c8d;
+        .date {
+            color: #666;
+            font-size: 0.95rem;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 4px 12px;
+            border-radius: 15px;
+        }
+
+        .cert-credential {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #555;
             font-style: italic;
-            margin-bottom: 10px;
-            font-size: 0.95em;
-        }
-
-        .cert-id {
-            color: #667eea;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            font-weight: 500;
         }
 
         .cert-skills {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 10px;
+            margin-top: 15px;
         }
 
         .cert-skill {
-            background: rgba(102, 126, 234, 0.15);
-            color: #667eea;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-
-        .cert-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(45deg, #f39c12, #e67e22);
+            background: #4caf50;
             color: white;
             padding: 4px 10px;
             border-radius: 15px;
-            font-size: 0.75em;
-            font-weight: 600;
-        }
-
-        /* Experience Section */
-        .experience-item {
-            border-left: 4px solid #667eea;
-            padding-left: 20px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: #667eea;
-            border-radius: 50%;
-        }
-
-        .experience-item h3 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-bottom: 5px;
-        }
-
-        .experience-item .company {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .experience-item .date {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .experience-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-item li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .experience-item li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-        }
-
-        /* Education Section */
-        .education {
-            background: rgba(102, 126, 234, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .education h3 {
-            color: #2c3e50;
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-
-        .education .degree {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background: rgba(102, 126, 234, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            border: 2px solid transparent;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
         }
 
-        .project-card:hover {
-            border-color: #667eea;
-            transform: translateY(-3px);
+        .cert-skill:hover {
+            background: #45a049;
+            transform: scale(1.05);
         }
 
-        .project-card h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        .project-card p {
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tech-tag {
-            background: rgba(102, 126, 234, 0.2);
-            color: #667eea;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        .footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cert-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .cert-header h3 {
-                min-width: auto;
-                margin-bottom: 10px;
-            }
-
-            .cert-badge {
-                position: static;
-                margin-top: 10px;
-                align-self: flex-start;
-            }
-        }
-
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -432,128 +430,254 @@
             }
         }
 
-        .card {
-            animation: fadeInUp 0.6s ease-out;
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 25px;
+                margin: 20px 0;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .date-location {
+                text-align: left;
+                margin-top: 10px;
+            }
         }
 
-        .header {
-            animation: fadeInUp 0.8s ease-out;
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.primary:hover {
+            border-color: rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="profile-img">PR</div>
+        <section class="hero">
             <h1>Pradeep Kumar Reddy Reddem</h1>
-            <p>Software & Data Engineer</p>
-            <p>Committed to delivering high-quality solutions and motivated to excel in challenging software and data engineer roles.</p>
-            
+            <p>Software and Data Engineer</p>
             <div class="contact-info">
-                <a href="tel:+12039188855" class="contact-item">
-                    📞 (203) 918-8855
-                </a>
-                <a href="mailto:reddempradeepkumar@gmail.com" class="contact-item">
-                    ✉️ reddempradeepkumar@gmail.com
-                </a>
+                <a href="tel:+12039188855" class="contact-item">📞 (203) 918-8855</a>
+                <a href="mailto:reddempradeepkumar@gmail.com" class="contact-item">✉️ Email</a>
             </div>
-        </header>
+        </section>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Skills Section -->
-            <div class="card">
-                <h2>Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">HTML</span>
-                            <span class="skill-tag">CSS</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">J2EE</span>
-                        </div>
+        <section class="section">
+            <h2>About Me</h2>
+            <p style="font-size: 1.2rem; text-align: center; color: #666; line-height: 1.8;">
+                Software and Data engineer with experience in backend development, ETL processes, and AWS cloud. Committed to delivering high-quality solutions and motivated to excel in challenging software and data engineer roles. Passionate about building scalable systems and solving complex problems through innovative technology solutions.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">J2EE</span>
                     </div>
-                    
-                    <div class="skill-category">
-                        <h3>Database & Data Warehouse</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">DynamoDB</span>
-                            <span class="skill-tag">Redshift</span>
-                        </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">DynamoDB</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">NoSQL</span>
                     </div>
-                    
-                    <div class="skill-category">
-                        <h3>Development Tools & Cloud</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">AWS EC2</span>
-                            <span class="skill-tag">Fargate</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Kafka</span>
-                            <span class="skill-tag">Spring Boot</span>
-                            <span class="skill-tag">Apache Airflow</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">REST API</span>
-                            <span class="skill-tag">Maven</span>
-                        </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS EC2</span>
+                        <span class="skill-tag">Fargate</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">SQS</span>
+                        <span class="skill-tag">SNS</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Spring Security</span>
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">OAuth</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">Postman</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Experience Section -->
-            <div class="card">
-                <h2>Professional Experience</h2>
+        <section class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>Formation</h3>
+                        <p class="job-title">Software Engineer Fellow</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Feb 2022 - Feb 2023</p>
+                        <p>Remote</p>
+                    </div>
+                </div>
+                <ul class="achievements">
+                    <li>Selected for a highly competitive Fellowship for personal and professional development purposes</li>
+                    <li>Completed intensive training for 7+ months to master React, data structures, algorithms, and theoretical CS topics through independent projects, pair programming, and small mentor-led groups with senior engineers from Microsoft, Facebook, Next Door, etc.</li>
+                    <li>Worked on deconstructing, high-level design, and scaling various real-time systems to handle millions of requests</li>
+                    <li>Strong understanding of performance tuning and optimization techniques, including load balancing, caching, and CDNs to handle millions of requests</li>
+                    <li>Strong understanding of communication protocols like web sockets and server-sent events and system architecture, including microservices, API design, and data storage solutions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>Onex Softech</h3>
+                        <p class="job-title">Software Developer</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Jan 2019 - Nov 2020</p>
+                        <p>Hyderabad, India</p>
+                    </div>
+                </div>
+                <ul class="achievements">
+                    <li>Improved user acquisition drastically by fixing a few map functionalities that are not working in the devices with Android versions below 11 which are related to the critical weather alert</li>
+                    <li>Implemented auto-configuration and utilized Spring Boot starters to rapidly bootstrap projects, ensuring consistent and efficient setups across multiple microservices</li>
+                    <li>Successfully integrated Spring Security with OAuth and JWT to enhance application security through robust authentication and authorization mechanisms</li>
+                    <li>Utilized Retrofit web service for sending requests to APIs, enhancing project code reusability</li>
+                    <li>Enhanced the project's code reusability, addressed critical issues through thorough debugging, conducted code reviews while offering valuable feedback, and mentored junior team members effectively</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Publications</h2>
+            <div class="publications-grid">
+                <div class="publication-item">
+                    <div class="publication-header">
+                        <h3>Research On Application Of Artificial Intelligence Algorithm In Directed Graph</h3>
+                        <div class="publication-meta">
+                            <span class="journal">International Journal For Science And Advanced Research In Technology</span>
+                            <span class="pub-date">Apr 8, 2019</span>
+                        </div>
+                    </div>
+                    <div class="publication-highlight">
+                        <span class="highlight-badge">🎯 AI Research</span>
+                        <span class="highlight-badge">📊 Graph Algorithms</span>
+                        <span class="highlight-badge">🔬 Published Research</span>
+                    </div>
+                </div>
                 
-                <div class="experience-item">
-                    <h3>Software Developer</h3>
-                    <div class="company">Onex Softech, Hyderabad, India</div>
-                    <div class="date">January 2019 - November 2020</div>
-                    <ul>
-                        <li>Improved user acquisition drastically by fixing map functionalities that were not working in devices with Android versions below 11, specifically related to critical weather alerts</li>
-                        <li>Implemented auto-configuration and utilized Spring Boot starters to rapidly bootstrap projects, ensuring consistent and efficient setups across multiple microservices</li>
-                        <li>Successfully integrated Spring Security with OAuth and JWT to enhance application security through robust authentication and authorization mechanisms</li>
-                        <li>Utilized Retrofit web service for sending requests to APIs, enhancing project code reusability</li>
-                        <li>Enhanced the project's code reusability, addressed critical issues through thorough debugging, conducted code reviews while offering valuable feedback, and mentored junior team members effectively</li>
-                    </ul>
+                <div class="publication-item">
+                    <div class="publication-header">
+                        <h3>An Novel Idea Artificial Neural Network</h3>
+                        <div class="publication-meta">
+                            <span class="journal">International Conference on Electrical, Electronics, Computer Science and Information Technology</span>
+                            <span class="pub-date">Dec 16, 2018</span>
+                        </div>
+                    </div>
+                    <div class="publication-highlight">
+                        <span class="highlight-badge">🧠 Neural Networks</span>
+                        <span class="highlight-badge">🏛️ Conference Paper</span>
+                        <span class="highlight-badge">💡 Novel Innovation</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Education Section -->
-        <div class="card">
-            <h2>Education</h2>
-            <div class="education">
-                <h3>University of New Haven</h3>
-                <div class="degree">Master of Science in Computer Science</div>
-                <div class="date">West Haven, CT | Graduated December 2022</div>
-            </div>
-        </div>
-
-        <!-- Certifications Section -->
-        <div class="card">
+        <section class="section">
             <h2>Licenses & Certifications</h2>
             <div class="certifications-grid">
-                <div class="cert-item">
+                <div class="certification-item">
                     <div class="cert-header">
                         <h3>Data Warehouse Fundamentals</h3>
-                        <div class="cert-issuer">IBM</div>
+                        <div class="cert-meta">
+                            <span class="issuer">IBM</span>
+                            <span class="date">Jan 2025</span>
+                        </div>
                     </div>
-                    <div class="cert-date">Issued January 2025</div>
-                    <div class="cert-badge">🏆 Recent Certification</div>
                 </div>
-
-                <div class="cert-item">
+                
+                <div class="certification-item">
                     <div class="cert-header">
                         <h3>ETL and Data Pipelines with Shell, Airflow and Kafka</h3>
-                        <div class="cert-issuer">IBM</div>
+                        <div class="cert-meta">
+                            <span class="issuer">IBM</span>
+                            <span class="date">Jan 2025</span>
+                        </div>
                     </div>
-                    <div class="cert-date">Issued January 2025</div>
                     <div class="cert-skills">
                         <span class="cert-skill">ETL</span>
                         <span class="cert-skill">Data Engineering</span>
@@ -562,36 +686,43 @@
                         <span class="cert-skill">Python</span>
                         <span class="cert-skill">PostgreSQL</span>
                     </div>
-                    <div class="cert-badge">🏆 Recent Certification</div>
                 </div>
-
-                <div class="cert-item">
+                
+                <div class="certification-item">
                     <div class="cert-header">
                         <h3>Django Web Framework</h3>
-                        <div class="cert-issuer">Meta</div>
+                        <div class="cert-meta">
+                            <span class="issuer">Meta</span>
+                            <span class="date">Jul 2024</span>
+                        </div>
                     </div>
-                    <div class="cert-date">Issued July 2024</div>
-                    <div class="cert-id">Credential ID: MFX6FWCMGY98</div>
+                    <div class="cert-credential">
+                        <span class="credential-id">Credential ID: MFX6FWCMGY98</span>
+                    </div>
                     <div class="cert-skills">
                         <span class="cert-skill">Django REST Framework</span>
                         <span class="cert-skill">Python</span>
                     </div>
                 </div>
-
-                <div class="cert-item">
+                
+                <div class="certification-item">
                     <div class="cert-header">
                         <h3>Python Data Structures</h3>
-                        <div class="cert-issuer">University of Michigan</div>
+                        <div class="cert-meta">
+                            <span class="issuer">University of Michigan</span>
+                            <span class="date">Jun 2023</span>
+                        </div>
                     </div>
-                    <div class="cert-date">Issued June 2023</div>
                 </div>
-
-                <div class="cert-item">
+                
+                <div class="certification-item">
                     <div class="cert-header">
                         <h3>Data Structures Crash Course</h3>
-                        <div class="cert-issuer">AlgoExpert</div>
+                        <div class="cert-meta">
+                            <span class="issuer">AlgoExpert</span>
+                            <span class="date">Aug 2022</span>
+                        </div>
                     </div>
-                    <div class="cert-date">Issued August 2022</div>
                     <div class="cert-skills">
                         <span class="cert-skill">Data Structures</span>
                         <span class="cert-skill">Algorithm Analysis</span>
@@ -600,112 +731,53 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Projects Section -->
-        <div class="card">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Weather Alert System</h3>
-                    <p>Developed a critical weather alert system for mobile devices, focusing on cross-platform compatibility and real-time notifications.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Android</span>
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">REST API</span>
-                        <span class="tech-tag">Maps Integration</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Microservices Architecture</h3>
-                    <p>Built scalable microservices using Spring Boot with integrated security features and efficient data processing capabilities.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">Spring Security</span>
-                        <span class="tech-tag">JWT</span>
-                        <span class="tech-tag">OAuth</span>
-                        <span class="tech-tag">Microservices</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Data Pipeline Solutions</h3>
-                    <p>Designed and implemented ETL pipelines for large-scale data processing with focus on reliability and performance optimization.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Apache Airflow</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">Data Processing</span>
-                    </div>
-                </div>
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education">
+                <h3>Master of Science in Computer Science</h3>
+                <p><strong>University of New Haven</strong> | West Haven, CT | Dec 2022</p>
             </div>
-        </div>
+        </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2025 Pradeep Kumar Reddy Reddem. All rights reserved.</p>
-            <p>Ready to contribute to innovative projects and drive technological excellence.</p>
-        </footer>
+        <section class="cta-section">
+            <h2>Ready to Collaborate?</h2>
+            <p>Let's build something amazing together. I'm always excited to discuss new opportunities and innovative projects.</p>
+            <a href="mailto:reddempradeepkumar@gmail.com" class="cta-button primary">reddempradeepkumar@gmail.com</a>
+        </section>
     </div>
 
     <script>
-        // Smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Add smooth scrolling animation on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section, .experience-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.1s';
+                        entry.target.style.animationFillMode = 'both';
+                    }
                 });
-            });
-        });
-
-        // Add subtle animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards for animation
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Dynamic skill highlighting
-        const skillTags = document.querySelectorAll('.skill-tag');
-        skillTags.forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05)';
-                this.style.boxShadow = '0 5px 15px rgba(102, 126, 234, 0.3)';
+            }, {
+                threshold: 0.1
             });
             
-            tag.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-                this.style.boxShadow = 'none';
+            sections.forEach(section => {
+                observer.observe(section);
             });
-        });
 
-        // Project card interactions
-        const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(102, 126, 234, 0.15)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(102, 126, 234, 0.1)';
+            // Add hover effect for skill tags
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1) rotate(2deg)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
             });
         });
     </script>
